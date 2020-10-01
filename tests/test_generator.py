@@ -1,4 +1,8 @@
-
+""""
+    Name: test_generate.py
+    Author: Venu Uppala
+    purpose: Used to define reusable fixtures
+"""
 import generator.generate
 from pytest import raises
 

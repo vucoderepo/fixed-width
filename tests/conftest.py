@@ -1,3 +1,8 @@
+"""
+    Name: conftest.py
+    Author: Venu Uppala
+    purpose: Used to define reusable fixtures
+"""
 from pytest import fixture
 
 

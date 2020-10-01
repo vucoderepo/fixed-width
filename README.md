@@ -16,9 +16,9 @@ Creates and converts fixed width file into csv file.
 - Input records will be provided according to spec.json file
 - Input record will be provided as a list of values for all the fields of a record
 - Develop code according to spec.json file, so didn't provide a parameter to accept different specification configuration file
-- Performance of code can be improved at later stage
+- Performance of code can be improved at later stage if improvement needed
 
-### Test cases covered
+### Test cases covered:
 - Test Valid input record which is according to spec.json file
 - Test invalid input record which is not according to spec.json file
 - Test empty record

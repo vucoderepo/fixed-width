@@ -19,3 +19,4 @@ def empty_record():
 @fixture
 def invalid_record():
     return [1, 10]
+

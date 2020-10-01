@@ -10,6 +10,7 @@ from pytest import raises
 class FixedWidthFileTests:
 
     def add_record(self, record):
+
         fwf = generator.generate.FixedWidthFile()
         fwf.add_record(record)
         return fwf

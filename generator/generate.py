@@ -11,6 +11,7 @@ logger = logging.getLogger("fixed-width")
 logger.setLevel(logging.INFO)
 # To log information in console
 log_file_format = "[%(levelname)s] - %(asctime)s - %(name)s - : %(message)s"
+
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(logging.Formatter(log_file_format))
@@ -20,7 +21,7 @@ logger.addHandler(console_handler)
 class FixedWidthFile(object):
     """
         Creates Fixed width records and writes them into fixed width text file
-        Also, converts fixed width file into csv
+        Also, converts fixed width file into csv file
     """
 
     def __init__(self):
@@ -49,13 +50,12 @@ class FixedWidthFile(object):
         """
         fixed_width_file = open("fw_file.txt", "wb")
 
-        # Add header record
         if len(self.records) > 0:
 
             logger.info("Start - Generating Fixed-width line file")
+            # Add header record
             fwr = FixedWidthRecord(self.spec['Offsets'], self.spec['ColumnNames'])
             fixed_width_file.write((str(fwr) + "\n").encode(self.spec['FixedWidthEncoding']))
-
             # Data records
             for record in self.records:
                 fixed_width_file.write((str(record) + "\n").encode(self.spec['FixedWidthEncoding']))
@@ -156,6 +156,7 @@ if __name__ == '__main__':
     record_1 = [1, "TWO", 3, 4, 5, 6, 7, 8, 9, 10]
     record_2 = ['abcde', 'abcdefghijkl', 'abc', 'ab', 'abcdefghijklm', 'abcdefg',
                 'abcdefghij', 'abcdefghijkln', 'abcdefghijabcdefghij', 'abcdefghijklo']
+
     gfw.add_record(record_1)
     gfw.add_record(record_2)
 

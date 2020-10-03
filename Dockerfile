@@ -13,7 +13,13 @@ COPY tests/ tests/
 # Install python dependencies
 RUN pip install -r requirements.txt
 
+#RUN tests using pytest
+WORKDIR /fixed-width/tests
+RUN ["pytest", "-v", "--html=reports/result.xml"]
+
+# Execute python script to generate fixed width and csv files
 WORKDIR /fixed-width/generator
+
 # command to run on container start
-CMD [ "python3", "./generate.py" ]
+CMD tail -f /dev/null
 

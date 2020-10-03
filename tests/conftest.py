@@ -20,3 +20,9 @@ def empty_record():
 def invalid_record():
     return [1, 10]
 
+
+@fixture()
+def values_greater_than_spec():
+    return ['abcdef', 'abcdefghijklm', 'abcd', 'abc', 'abcdefghijklmn', 'abcdefgh',
+                'abcdefghijk', 'abcdefghijklno', 'abcdefghijabcdefghijk', 'abcdefghijklop']
+

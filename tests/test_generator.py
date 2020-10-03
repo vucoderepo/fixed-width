@@ -10,7 +10,6 @@ from pytest import raises
 class FixedWidthFileTests:
 
     def add_record(self, record):
-
         fwf = generator.generate.FixedWidthFile()
         fwf.add_record(record)
         return fwf
@@ -50,7 +49,10 @@ class FixedWidthFileTests:
             fwf.create()
 
     def test_convert_to_csv_valid(self, valid_record):
-        fwf = self.add_record(valid_record)
+        self.assert_csv_record(valid_record, "1,TWO,3,4,5,6,7,8,9,10\n")
+
+    def assert_csv_record(self, input_record, expected_value):
+        fwf = self.add_record(input_record)
         fwf.create()
         fwf.convert_to_csv()
         assert (isinstance(fwf, generator.generate.FixedWidthFile))
@@ -59,9 +61,16 @@ class FixedWidthFileTests:
         with open("fw_csv_file.csv") as csv_file:
             lines = csv_file.readlines()
         assert len(lines) == 2
+        assert lines[1] == expected_value
 
     def test_convert_to_csv_invalid(self, invalid_record):
         with raises(generator.generate.FixedWidthRecordException):
             fwf = self.add_record(invalid_record)
             fwf.create()
             fwf.convert_to_csv()
+
+    def test_with_values_greater_than_spec(self, values_greater_than_spec):
+        self.assert_csv_record(values_greater_than_spec, "abcde,fabcdefghijk,lma,bc,dabcabcdefghi,"
+                                                         "jklmnab,cdefghabcd,efghijkabcdef,"
+                                                         "ghijklnoabcdefghijab,cdefghijkabcd\n")
+

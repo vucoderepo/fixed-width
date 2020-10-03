@@ -12,7 +12,8 @@ Creates and converts fixed width file into csv file.
      docker run -d --name fixed-width fixed-width<br>
 5) docker exec fixed-width python ./generate.py
    Output of the docker run command contains input records, generated fixed width records and generated csv records<br>
-6) You can copy generated fixed width files from docker container to your host using below commands
+   The executed generate.py generates fixed width and csv files in the working directory<br>
+6) Copy the generated fixed width files from docker container to your host using below commands
     docker cp fixed-width:/fixed-width/generator/fw_file.txt .  
     docker cp fixed-width:/fixed-width/generator/fw_csv_file.csv . 
 ### Assumptions:

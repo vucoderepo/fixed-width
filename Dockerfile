@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 
 #RUN tests using pytest
 WORKDIR /fixed-width/tests
-RUN ["pytest", "-v", "--html=reports/result.xml"]
+RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
 
 # Execute python script to generate fixed width and csv files
 WORKDIR /fixed-width/generator

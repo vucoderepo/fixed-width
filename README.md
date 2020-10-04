@@ -3,7 +3,7 @@ Creates fixed width file and converts it as csv file.
 
 ### Instructions to build and run Docker image:
 1) Clone fixed-width project<br>
-    git clone git@github.com:venu-uppala/fixed-width.git<br>
+    git clone git@github.com:vucoderepo/fixed-width.git<br>
 2) Change to the project root directory<br>
     cd fixed-width<br>
 3) Build fixed-width docker image using Dockerfile<br> 
